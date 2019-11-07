@@ -16,22 +16,20 @@ class Menta inherits Planta {
 }
 
 class Soja inherits Planta {
-	var anio = 0
-	var property metros
 	
 	override method horasDeSol() { 
-		if (metros.between(0.5, 1)) { return 7 } 
-		else metros >= 1 { return 9 } }  
-	override method daNuevasSemillas() { return altura > 1 and anio > 2007 }
+		if (altura <= 0.5) { return 6 }
+		else if (altura.between(0.5, 1)) { return 7 } 
+		else altura >= 1 { return 9 } }  
+	override method daNuevasSemillas() { return altura > 1 and anioDeObtencion > 2007 }
 	override method espacioQueOcupa() { return altura / 2 }
 	
 }
 
 class Quinoa inherits Planta {
-	var anio = 0
+	var property horasDeSol
 	
-	override method horasDeSol() { return 10 }
-	override method daNuevasSemillas() { return anio < 2005 or super() }
+	override method daNuevasSemillas() { return anioDeObtencion < 2005 or super() }
 	override method espacioQueOcupa() { return 0.5 }	
 	
 }
